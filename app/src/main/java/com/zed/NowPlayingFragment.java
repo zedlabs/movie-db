@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NowPlayingFragment extends Fragment {
+public class NowPlayingFragment extends Fragment implements CustomAdapter.OnDataItemClickListener{
 
     private CustomAdapter adapter;
     private RecyclerView recyclerView;
@@ -55,10 +55,15 @@ public class NowPlayingFragment extends Fragment {
     }
     private void generateDataList(List<tmdbNowPlaying.Result> results, View v) {
         recyclerView = v.findViewById(R.id.nowplaying_recyclerView);
-        adapter = new CustomAdapter(this.getContext(),results);
+        adapter = new CustomAdapter(this.getContext(),results, this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+    }
+
+    @Override
+    public void onItemClick(int position) {
 
     }
 }

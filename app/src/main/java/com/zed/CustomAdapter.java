@@ -19,26 +19,38 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     private List<tmdbNowPlaying.Result> dataList;
     private Context context;
+    OnDataItemClickListener ondataItemClickListener;
 
-    CustomAdapter(Context context, List<tmdbNowPlaying.Result> dataList){
+    CustomAdapter(Context context, List<tmdbNowPlaying.Result> dataList, OnDataItemClickListener onDataItemClickListener){
         this.context = context;
         this.dataList = dataList;
+        this.ondataItemClickListener = onDataItemClickListener;
     }
 
-    public static class CustomViewHolder extends RecyclerView.ViewHolder {
+    public static class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final View mView;
         TextView txtTitle, year, rating;
         private ImageView poster;
-
-        public CustomViewHolder(@NonNull View itemView) {
+        OnDataItemClickListener onDataItemClickListener;
+        public CustomViewHolder(@NonNull View itemView, OnDataItemClickListener onDataItemClickListener) {
             super(itemView);
             mView = itemView;
             txtTitle = mView.findViewById(R.id.movie_name);
             poster = mView.findViewById(R.id.poster);
             year = mView.findViewById(R.id.year);
             rating = mView.findViewById(R.id.rating);
+            this.onDataItemClickListener = onDataItemClickListener;
+            mView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            onDataItemClickListener.onItemClick(getAdapterPosition());
+        }
+    }
+    interface OnDataItemClickListener{
+        void onItemClick(int position);
     }
 
     @NonNull
@@ -46,7 +58,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.movie_list_item, parent, false);
-        return new CustomViewHolder(view);
+        return new CustomViewHolder(view,ondataItemClickListener);
     }
 
     @Override

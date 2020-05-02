@@ -23,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UpcomingFragment extends Fragment {
+public class UpcomingFragment extends Fragment implements CustomAdapter.OnDataItemClickListener {
 
     private CustomAdapter adapter;
     private RecyclerView recyclerView;
@@ -57,10 +57,16 @@ public class UpcomingFragment extends Fragment {
 
     private void generateDataList(List<tmdbNowPlaying.Result> results, View v) {
         recyclerView = v.findViewById(R.id.upcoming_recyclerView);
-        adapter = new CustomAdapter(this.getContext(),results);
+        adapter = new CustomAdapter(this.getContext(),results, this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        //start an intent to the details activity here
+        Log.e("here", "this is true");
     }
 }
