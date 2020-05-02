@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/bottom_navigation">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/bottom_nav_graph"
+    app:startDestination="@id/nowplaying_bottom">
+    <fragment android:id="@+id/nowplaying_bottom" android:name="com.zed.NowPlayingFragment"
+        android:label="fragment_new" tools:layout="@layout/fragment_now_playing"/>
+    <fragment android:id="@+id/upcoming_bottom" android:name="com.zed.UpcomingFragment"
+        android:label="fragment_popular" tools:layout="@layout/fragment_upcoming"/>
 </navigation>

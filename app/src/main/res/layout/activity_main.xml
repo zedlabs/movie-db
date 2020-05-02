@@ -33,11 +33,11 @@
         app:menu="@menu/bottom_navigation_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         android:background="@color/colorPrimary"
-        app:itemIconTint="@drawable/bottom_navigation_selector"
-        app:itemTextColor="@color/md_grey_400"
-        app:labelVisibilityMode="selected"
-        app:itemRippleColor="@color/snackBarAction"
+        app:itemTextColor="@color/md_white_1000"
+        app:labelVisibilityMode="labeled"
+        app:itemRippleColor="@color/md_white_1000"
         app:layout_constraintStart_toStartOf="parent"
         />
 

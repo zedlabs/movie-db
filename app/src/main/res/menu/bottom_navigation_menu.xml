@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item android:title="Now Playing"
+        android:id="@+id/nowplaying_bottom"
+        android:icon="@drawable/ic_baseline_arrow_downward_24px"
+        />
+    <item android:title="Upcoming"
+
+        android:id="@+id/upcoming_bottom"
+        android:icon="@drawable/ic_fire"
+        />
+</menu>
