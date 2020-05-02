@@ -76,7 +76,7 @@ public class UpcomingFragment extends Fragment implements CustomAdapter.OnDataIt
         intent.putExtra("title", curRes.getTitle() );
         intent.putExtra("overview", curRes.getOverview());
         intent.putExtra("year",curRes.getReleaseDate() );
-        intent.putExtra("rating",curRes.getVoteAverage() );
+        intent.putExtra("rating",curRes.getVoteAverage().toString() );
         intent.putExtra("adult", curRes.getAdult());
         intent.putExtra("poster_url", "https://image.tmdb.org/t/p/original"+ curRes.getPosterPath());
         startActivity(intent);
